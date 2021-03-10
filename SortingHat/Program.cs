@@ -2,6 +2,25 @@ using System;
 
 namespace SortingHat
 {
+    /************************ Sorting Hat Project ************************************/
+    /** Functionality / Purpose                                                     **/
+    /**                                                                             **/
+    /** This program performs all of the 'sorting' patterns used in object oriented **/
+    /** programming: Bubble, Selection and Merge. It originally used a pre-defined  **/
+    /** unsorted array as the intial list of numerical values to be sorted. After   **/
+    /** I completed the functions for each sort type, I expanded upon the original. **/
+    /** I added a menu to allow the program to repeatedly sort based upon input     **/
+    /** of which sort type to use from the user. Once this was working properly, I  **/
+    /** wanted to see if I could use user input to determine the size of the array. **/
+    /** After I got that working, I decided to put my skills to the test further by **/
+    /** adding a random number generating functionality to the program. The program **/
+    /** now creates a dynamically sized array with random generated numbers stored. **/
+    /** The array is cleared & re-initialized for each sort & the user is prompted  **/
+    /** to enter an array size each time they select one of the menu options. As it **/
+    /** sorts, the program outputs the array's content to keep track of the sorting **/
+    /** progress. The randomizer is also scaled based upon the array size.          **/
+    /*********************************************************************************/
+    
     class Program
     {
         static int Main(string[] args)
@@ -22,8 +41,8 @@ namespace SortingHat
                 //                int inArrayNum = 0;
 
                 Array.Resize(ref unsorted, inLen); // Resize unsorted to the array size inputed by user
-                Array.Resize(ref sortme, inLen);
-                GenerateUnsorted(unsorted, inLen);
+                Array.Resize(ref sortme, inLen); // Resize sortme to the array size inputed by user
+                GenerateUnsorted(unsorted, inLen); // generates randomized unsorted numerical array
                 int inResponse = 0;
                 string[] promptArray = new string[] { "Bubble", "Selection", "Merge" };
 
@@ -35,7 +54,6 @@ namespace SortingHat
                     string response = Console.ReadLine();
                     inResponse = Convert.ToInt32(response);
 
-                    // CopyArray(unsorted, sortme);
                     Array.Resize(ref sortme, unsorted.Length);
                     unsorted.CopyTo(sortme, 0);
 
