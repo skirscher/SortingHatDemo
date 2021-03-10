@@ -44,7 +44,7 @@ namespace SortingHat
                 Array.Resize(ref sortme, inLen); // Resize sortme to the array size inputed by user
                 GenerateUnsorted(unsorted, inLen); // generates randomized unsorted numerical array
                 int inResponse = 0;
-                string[] promptArray = new string[] { "Bubble", "Selection", "Merge" };
+                string[] promptArray = new string[] { "Bubble", "Selection", "Merge" }; // Array to make menu prompt more dynamic (TO-DO: Update to use INI file contents)
 
                 while (inResponse < promptArray.Length + 1)
                 {
@@ -126,6 +126,8 @@ namespace SortingHat
                 //Convert.ToInt32(resp);
                 //if ((inArrayNum >= 0) && (inArrayNum <= 9999))
                 //{
+                
+                // Ensure each number is used only once in the unsorted array
                 for (int curIndx = 0; curIndx < unsorted.Length; curIndx++)
                 {
                     if (unsorted[curIndx] == inArrayNum)
@@ -265,14 +267,6 @@ namespace SortingHat
             Console.WriteLine("Sorted array: ");
             PrintArray(arrIn);
         }
-
-        /*        static void CopyArray(int[] inArray, int[] outArray)
-                {
-                    for (int i = 0; i < inArray.Length; i++)
-                    {
-                        outArray.Add(inArray[i]);
-                    }
-                }*/
 
         static void PrintPrompt(string[] promptArr)
         {
